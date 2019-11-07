@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h4>Waiting for client webcam.</h4>
+    <img id = "1" src="">
+    <script>
+        // get img dom element
+        const WS_URL = 'ws://localhost:3000';
+        const ws = new WebSocket(WS_URL);
+
+        ws.onopen = (event) => {
+            console.log(`Connected!`, event)};
+            ws.onmessage = message => {
+            let img = document.getElementById('1');
+            img.src = message.data;
+        }
+    </script>
+</body>
+</html>
